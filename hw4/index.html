@@ -53,7 +53,7 @@ for (const obj of arr) {
 
 /*
 – є масив [2,17,13,6,22,31,45,66,100,-18] :*/
-let arr = [2,17,13,6,22,31,45,66,100,-18];
+//let arr = [2,17,13,6,22,31,45,66,100,-18];
 /*
 9. всі попередні завдання (окрім 8), але у зворотньому циклі (задом наперед)
 */
@@ -132,10 +132,230 @@ for (const obj of arr) {
 */
 
 //8. вивести масив у зворотньому порядку.
+/*
 for (let i = arr.length-1; i >= 0; i--) {
     console.log(arr[i]);
 
 }
+*/
+
+
+//– Створити масив з 10 елементів числового, стрічкового і булевого типу. За допомогою if та typeof вивести тільки булеві елементи
+/*
+let arr1 = [1, 'hello', true, -5, 'world', false, 0, 'ok', 42, true];
+
+for (let i = 0; i < arr1.length; i++) {
+    if(typeof arr1[i] === 'string'){
+        console.log(arr1[i]);
+    }
+
+}
+*/
+
+//– Створити цикл for на 10 ітерацій з кроком 1. Вивести поточний номер кроку через console.log та document.write
+/*for(let i=0; i<100; i++){
+    if(i%2!==0){
+        console.log(i);
+        document.write(i + " ")
+    }
+}*/
+
+//створити масив книжок (назва, кількість сторінок, автори, жанри).
+
+const books = [
+    {
+        title: "The Hobbit",
+        pageCount: 310,
+        authors: ["J.R.R. Tolkien"],
+        genres: ["Fantasy", "Adventure"]
+    },
+    {
+        title: "1984",
+        pageCount: 328,
+        authors: ["George Orwell"],
+        genres: ["Dystopia", "Political fiction", "Thriller"]
+    },
+    {
+        title: "To Kill a Mockingbird",
+        pageCount: 281,
+        authors: ["Harper Lee"],
+        genres: ["Classic", "Drama"]
+    },
+    {
+        title: "The Pragmatic Programmer",
+        pageCount: 352,
+        authors: ["Andrew Hunt", "David Thomas"],
+        genres: ["Non-fiction", "Programming"]
+    },
+    {
+        title: "Clean Code",
+        pageCount: 464,
+        authors: ["Robert C. Martin"],
+        genres: ["Non-fiction", "Programming"]
+    },
+    {
+        title: "Dune",
+        pageCount: 544,
+        authors: ["Frank Herbert"],
+        genres: ["Science Fiction", "Adventure"]
+    },
+    {
+        title: "The Name of the Wind",
+        pageCount: 662,
+        authors: ["Patrick Rothfuss"],
+        genres: ["Fantasy"]
+    },
+    {
+        title: "Good Omens",
+        pageCount: 432,
+        authors: ["Neil Gaiman", "Terry Pratchett"],
+        genres: ["Fantasy", "Comedy"]
+    },
+    {
+        title: "The Martian",
+        pageCount: 387,
+        authors: ["Andy Weir"],
+        genres: ["Science Fiction", "Survival", "Adventure", "Dystopia", "Thriller"]
+    },
+    {
+        title: "Sapiens: A Brief History of Humankind",
+        pageCount: 498,
+        authors: ["Yuval Noah Harari"],
+        genres: ["Non-fiction", "History"]
+    }
+];
+
+//– знайти найбільшу книжку.
+/*
+let max = books[0];
+
+for (const obj of books) {
+    if(obj.pageCount>max.pageCount){
+        max=obj;
+    }
+}
+console.log(max)
+*/
+
+//– знайти книжку/ки з найбільшою кількістю жанрів
+/*
+let max = books[0];
+for (const obj of books) {
+    if(obj.genres.length>max.genres.length){
+        max=obj;
+    }
+}
+console.log(max)
+*/
+
+//– знайти книжку/ки з найдовшою назвою
+/*
+let max = books[0];
+
+for (const obj of books) {
+       if(obj.title.length > max.title.length) {
+           max = obj;
+       }
+}
+console.log(max)
+*/
+
+// – знайти книжку/ки, які писали 2 автори
+/*
+let newArr = []
+for (const obj of books) {
+    if(obj.authors.length === 1){
+        newArr.push(obj)
+    }
+}
+console.log(newArr);
+*/
+/*
+function Rand (min, max){
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+let arr =[];
+for(let i=0; i<20; i++){
+    arr.push(Rand(1,100));
+}
+document.write(arr);
+for(let i=0; i<20; i++){
+    if(arr[i+1]%2===0){
+        console.log(arr[i]);
+    }
+}*/
+//Є масив з числами [100,250,50,168,120,345,188], Які характеризують вартість окремої покупки. Обрахувати середній чек.
+/*
+let arr = [100,250,50,168,120,345,188];
+let summ = 0;
+for (let i = 0; i < arr.length; i++) {
+    summ += arr[i];
+}
+console.log((summ/arr.length).toFixed(2));
+*/
+
+//Створити масив з рандомними значеннями, помножити всі його елементи на 5 та перемістити їх в інший масив.
+/*
+let arr = [];
+let arr1 = [];
+for (let i = 0; i < 20; i++) {
+    arr[i] = Math.floor(Math.random() * (20 + 1)) + 1;
+    arr1.push((arr[i])*5);
+}
+console.log(arr);
+console.log(arr1);
+*/
+
+//З’єднати в один об’єкт користувача та місто з відповідними “id” та “user_id” .
+//Записати цей об’єкт в новий масив
+/*
+let full = [];
+let usersWithId = [
+    {id: 1, name: "vasya", age: 31, status: false},
+    {id: 2, name: "petya", age: 30, status: true},
+    {id: 3, name: "kolya", age: 29, status: true},
+    {id: 4, name: "olya", age: 28, status: false}
+];
+
+let citiesWithId = [
+    {user_id: 3, country: "USA", city: "Portland"},
+    {user_id: 1, country: "Ukraine", city: "Ternopil"},
+    {user_id: 2, country: "Poland", city: "Krakow"},
+    {user_id: 4, country: "USA", city: "Miami"}
+];
+
+for (let i = 0; i < usersWithId.length; i++) {
+    let tmp = citiesWithId.find((obj) => obj.user_id === usersWithId[i].id)
+    full.push({
+        id: usersWithId[i].id,
+        name: usersWithId[i].name,
+        age: usersWithId[i].age,
+        status: usersWithId[i].status,
+        city: tmp.city,
+        country: tmp.country,
+    })
+}
+console.log(full);
+
+//let us = citiesWithId.find((obj) => obj.user_id === 1)
+*/
+
+//– Дано масив: [ ‘a’, ‘b’, ‘c’] . За допомогою циклу for зібрати всі букви в слово.
+//– Дано масив: [ ‘a’, ‘b’, ‘c’] . За допомогою циклу while зібрати всі букви в слово.
+//– Дано масив: [ ‘a’, ‘b’, ‘c’] . За допомогою циклу for of зібрати всі букви в слово
+
+let array = ['h', 'o', 'w', ' ', 'a', 'r', 'e', ' ', 'y', 'o', 'u', '?'];
+let sentence='';
+
+// for (let i = 0; i < array.length; i++) {
+//     sentence+= array[i];
+// }
+
+for (const obj of array) {
+    sentence+=obj;
+}
+console.log(sentence);
+
 
 </script>
 </body>
