@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HW 4</title>
+</head>
+<body>
+<script>
+
+ //– створити функцію, яка обчислює та повертає площу прямокутника зі сторонами  а і б
+
+ function square(x,y) {
+     return x*y;
+ }
+
+//– створити функцію, яка обчислює та повертає площу кола з радіусом r
+
+ function circle(r){
+     return Math.PI*(r**2);
+ }
+
+//– створити функцію, яка обчислює та повертає площу циліндру висотою h, та радіусом r
+
+ function cylinder(h,r){
+     return 2*Math.PI*r*h + 2*Math.PI*r**2;
+ }
+ //console.log(cylinder(2,3).toFixed(2))
+
+//– створити функцію, яка приймає масив та виводить кожен його елемент
+ let arr = [1,2,4,6,232,7,-9,6,0,5]
+
+ function printArray(arr){
+     for (let i = 0; i < arr.length; i++) {
+         console.log(arr[i]);
+     }
+ }
+
+ //– створити функцію, яка створює параграф з текстом та виводить його через document.write. Текст задати через аргумент
+
+function draw(text){
+    document.write(`<p>${text}</p>`)
+}
+
+//– створити функцію, яка створює ul з трьома елементами li та виводить його через document.write. Текст li задати через аргумент всім однаковий
+
+ function PrintList(text){
+     document.write(`
+     <ul>
+     <li>${text}</li>
+     <li>${text}</li>
+     <li>${text}</li>
+     </ul>
+     `)
+ }
+
+//– створити функцію, яка створює ul з  елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл) та виводить його через document.write
+
+ function printList2(text, count){
+     document.write(`<ul>`);
+     for (let i = 0; i < count; i++) {
+         document.write(`<li>${text}</li>`);
+     }
+     document.write(`</ul>`);
+ }
+
+//– створити функцію, яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список (ul li) та виводить його через document.write
+
+ let arrN = [3,'dsf', true, -20, 31, false, NaN, 94, undefined, 909, 0];
+ function printArray(array){
+     document.write(`<ul>`);
+     for(let i=0; i<array.length; i++){
+      document.write(`<li>${array[i]}</li>`);
+     }
+     document.write(`</ul>`);
+ }
+
+ //– створити функцію, яка приймає масив об’єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об’єкту окремий блок.
+
+ let arrB = [
+     {
+         id: 1,
+         name: 'sara',
+         age: 9,
+     },
+     {
+         id: 2,
+         name: 'bob',
+         age: 20,
+     },
+     {
+         id: 3,
+         name: 'jersey',
+         age: 30,
+     },
+     {
+         id: 4,
+         name: 'bill',
+         age: 42,
+     },
+     {
+         id: 5,
+         name: 'crowd',
+         age: 9,
+     }
+ ]
+
+function printObjects(arr){
+    for (let i = 0; i < arr.length; i++) {
+        document.write(`
+        <div>
+        <p>id: ${arr[i].id}</p>
+        <p>name: ${arr[i].name}</p>
+        <p>age: ${arr[i].age}</p>
+        </div>
+        `);
+    }
+}
+
+//– створити функцію яка повертає найменьше число з масиву
+ const arrN4 = [42, -7, 103, 0, 58, 999, -250, 13, 76, 5, 321, -18, 64, 10, 87, 444, -91, 73, 8, 219];
+ function findMin(arr){
+     let min = arr[0];
+     for(let i=1; i<arr.length; i++){
+         if(arr[i]<=min){
+             min = arr[i];
+         }
+     }
+     return min;
+ }
+
+ //– створити функцію sum(arr), яка приймає масив чисел, сумує значення елементів масиву та повертає його.
+
+ function sum(arr){
+     let sum = 0;
+     for(let i=0; i<arr.length; i++){
+         sum += arr[i];
+     }
+     return sum;
+ }
+
+ //– створити функцію swap(arr,index1,index2). Функція міняє місцями значення у відповідних індексах
+
+ function swap(arr, index1, index2){
+     let buff = arr[index1];
+     arr[index1] = arr[index2];
+     arr[index2] = buff;
+ }
+
+ //Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
+
+ function exchange(sumUAH,currencyValues,exchangeCurrency){
+     switch(exchangeCurrency){
+         case 'USD':
+                return (sumUAH/currencyValues).toFixed(2);
+         case 'EUR':
+             return (sumUAH/currencyValues).toFixed(2);
+     }
+ }
+
+ console.log(exchange(1000, 42.5, 'USD'))
+
+
+</script>
+</body>
+</html>
