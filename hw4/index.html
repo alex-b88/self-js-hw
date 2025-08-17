@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HW 4</title>
+</head>
+<body>
+
+<script>
+
+//створити масив з:
+//– з 5 числових значень
+//– з 5 стічкових значень
+//– з 5 значень стрічкового, числового та булевого типу
+//– та вивести його в консоль
+    /*const numbers = [1,2,3,4,5,6,7,8,9,10];
+    const products = ['bread', 'milk', 'cheese', 'eggs', 'butter', 'sugar', 'flour', 'salt', 'pepper', 'baking powder'];
+    const array = [true, 4, 'hello', false, 43, 'world', 'sugar', -20];
+
+    let i =0;
+    while(i<numbers.length){
+        console.log(numbers[i]);
+        i++;
+    }
+
+    for (const obj of products) {
+        console.log(obj)
+    }
+
+    for (let j = 0; j < array.length; j++) {
+        console.log(array[j]);
+
+    }*/
+
+
+//— Створити пустий масив. Наповнити його будь-якими значеннями, звертаючись до конкретного індексу. Вивести в консоль
+/*
+let arr = [];
+arr[0] = 1;
+arr[1] = 2;
+arr[3] = 'hello';
+arr[4] = true;
+arr[5] = 43;
+arr[6] = 'world';
+arr[7] = 'sugar';
+arr[8] = -20;
+for (const obj of arr) {
+    console.log(obj)
+}
+*/
+
+/*
+– є масив [2,17,13,6,22,31,45,66,100,-18] :*/
+let arr = [2,17,13,6,22,31,45,66,100,-18];
+/*
+9. всі попередні завдання (окрім 8), але у зворотньому циклі (задом наперед)
+*/
+// 1. перебрати його циклом while
+/*
+let i = 0;
+
+while (i<arr.length) {
+    console.log(arr[i]);
+    i++;
+}
+*/
+//2. перебрати його циклом for
+/*
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+
+}*/
+
+//3. перебрати циклом while та вивести числа тільки з непарним індексом
+/*
+let i = 0;
+while (i<arr.length) {
+    if(arr[i]%2!==0){
+        console.log(arr[i]);
+    }
+    i++;
+}
+*/
+
+//4. перебрати циклом for та вивести  числа тільки з непарним індексом
+/*
+for (let i = 0; i < arr.length; i++) {
+    if(arr[i]%2!==0){
+        console.log(arr[i]);
+    }
+
+}
+*/
+
+//5. перебрати циклом while та вивести  числа тільки парні  значення
+/*
+let i = 0;
+
+while (i<arr.length) {
+    if(arr[i]%2===0)
+        console.log(arr[i]);
+    i++;
+}
+*/
+
+//6. перебрати циклом for та вивести  числа тільки парні  значення
+/*
+for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+        console.log(arr[i]);
+    }
+
+}
+*/
+
+//7. замінити кожне число, кратне 3, на слово “okten”
+/*
+for (const obj of arr) {
+    console.log(obj)
+}
+console.log("==============")
+for (let i = 0; i < arr.length; i++) {
+    if(arr[i]%3===0){
+        arr[i]='okten';
+    }
+}
+for (const obj of arr) {
+    console.log(obj)
+}
+*/
+
+//8. вивести масив у зворотньому порядку.
+for (let i = arr.length-1; i >= 0; i--) {
+    console.log(arr[i]);
+
+}
+
+</script>
+</body>
+</html>
