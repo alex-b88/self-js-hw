@@ -151,15 +151,16 @@ function printObjects(arr){
  //Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
 
  function exchange(sumUAH,currencyValues,exchangeCurrency){
-     switch(exchangeCurrency){
-         case 'USD':
-                return (sumUAH/currencyValues).toFixed(2);
-         case 'EUR':
-             return (sumUAH/currencyValues).toFixed(2);
+     let exchangeAmount =0;
+     for(const obj of currencyValues){
+         if(obj.currency === exchangeCurrency){
+             exchangeAmount = sumUAH / obj.value;
+         }
      }
+     document.write(`<div>${exchangeAmount.toFixed(2)}</div>`)
  }
 
- console.log(exchange(1000, 42.5, 'USD'))
+ exchange(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'EUR')
 
 
 </script>
