@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HW-6</title>
+</head>
+<body>
+
+<script>
+    //– Знайти та вивести довжину наступних стрінгових значень
+    //‘hello world’
+    //‘lorem ipsum’
+    //‘javascript is cool’
+   /* const str = 'javascript is cool';
+    console.log(str.length);*/
+
+    //– Перевести до великого регістру наступні стрінгові значення
+    //‘hello world’, ‘lorem ipsum’, ‘javascript is cool’
+
+    /*let str = 'hello world';
+    str = str.toUpperCase();
+    console.log(str)*/
+
+    //Перевести до нижнього регістру наступні стрінгові значення
+    //‘HELLO WORLD’, ‘LOREM IPSUM’, ‘JAVASCRIPT IS COOL’
+    /*let str = 'HELLO WORLD';
+    str = str.toLowerCase();
+    console.log(str);*/
+
+    //– Є “брудна” стрінга let str = ‘ dirty string   ‘ . Почистити її від зайвих пробілів.
+    /*let str = ' dirty string   ';
+    console.log(str.trim());
+    console.log(str.trim().length);*/
+
+    //– Напишіть функцію stringToarray(str), яка перетворює рядок на масив слів.
+
+    /*let str = 'Ревуть воли як ясла повні';
+    function stringToArray(string) {
+        return string.split(' ');
+    }
+    let arr = stringToArray(str);
+    console.log(arr);*/
+
+    //– є масив чисел [10,8,-7,55,987,-1011,0,1050,0] . за допомоги map  перетворити всі об’єкти в масиві на стрінгові.
+   /* let arr = [10,8,-7,55,987,-1011,0,1050,0];
+    let nArr = arr.map(obj => obj.toString());
+    console.log(typeof nArr[2]);*/
+
+    //– створити функцію sortNums(array,direction), яка приймає масив чисел, та сортує його від більшого до меншого, або навпаки  – залежно від значення аргументу direction.
+    /*   let arr = [10,8,-7,55,987,-1011,0,1050,0];
+    function sortNums(arr, direction){
+        switch (direction) {
+            case 'DESC':
+                arr.sort((a,b) => b-a);
+                break;
+            case 'ASC':
+                arr.sort((a,b) => a-b);
+        }
+        return arr;
+    }
+    sortNums(arr, 'ASC');
+    console.log(arr);*/
+
+    //— відсортувати його за спаданням за monthDuration
+    //— відфільтрувати, залишивши тільки курси з тривалістю понад 5 місяців
+    //— за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration}
+
+    let coursesAndDurationArray = [
+    {title: 'JavaScript Complex', monthDuration: 5},
+    {title: 'Java Complex', monthDuration: 6},
+    {title: 'Python Complex', monthDuration: 6},
+    {title: 'QA Complex', monthDuration: 4},
+    {title: 'FullStack', monthDuration: 7},
+    {title: 'Frontend', monthDuration: 4}
+    ];
+
+   /* coursesAndDurationArray.sort((a,b)=> b['monthDuration'] - a['monthDuration']);
+    console.log(coursesAndDurationArray);*/
+
+    /*let arr2 = coursesAndDurationArray.reduce((acc, obj) => {
+        if (obj['monthDuration'] > 5) {
+            acc.push(obj);
+        }
+        return acc;
+    }, []);
+    console.log(arr2);*/
+
+    /*let arr2 = coursesAndDurationArray.map((obj, index) => {
+        obj.id = index+1;
+        return obj;
+    })
+
+    console.log(arr2);*/
+
+    //взяти з arrays.js масив coursesArray
+    //–написати пошук всіх об’єктів, в яких в modules є sass
+    //–написати пошук всіх об’єктів, в яких в modules є docker
+
+/*    let coursesArray = [
+        {
+            title: 'JavaScript Complex',
+            monthDuration: 5,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+        },
+        {
+            title: 'Java Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html',
+                'css',
+                'js',
+                'mysql',
+                'mongodb',
+                'angular',
+                'aws',
+                'docker',
+                'git',
+                'java core',
+                'java advanced']
+        },
+        {
+            title: 'Python Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html',
+                'css',
+                'js',
+                'mysql',
+                'mongodb',
+                'angular',
+                'aws',
+                'docker',
+                'python core',
+                'python advanced']
+        },
+        {
+            title: 'QA Complex',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+        },
+        {
+            title: 'FullStack',
+            monthDuration: 7,
+            hourDuration: 909,
+            modules: ['html',
+                'css',
+                'js',
+                'mysql',
+                'mongodb',
+                'react',
+                'angular',
+                'aws',
+                'docker',
+                'git',
+                'node.js',
+                'python',
+                'java']
+        },
+        {
+            title: 'Frontend',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+        }
+    ];
+
+    function arrSearch (arr, searchOption) {
+        console.log(arr.filter((item) => item.modules.includes(searchOption)));
+    }
+    arrSearch(coursesArray, 'docker');*/
+
+    //описати колоду карт (від 6 до туза без джокерів). Більшу частину колоди можна описати з використанням циклу
+
+    const suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades'];
+    const vals = ['6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+    const colors = [`red`, `black`];
+
+    let deck = [];
+
+    suits.forEach((suit) => {
+        vals.forEach((val) => {
+            let obj = {
+                suit: suit,
+                val: val,
+                color: colors[suits.indexOf(suit)%2]
+            }
+            deck.push(obj);
+        })
+    })
+
+    function arrSearch(arr, callback) {
+        let mass = [];
+        for (const obj of arr) {
+            if(callback(obj)){
+                mass.push(obj);
+            }
+        }
+        return mass;
+    }
+
+    //– знайти піковий туз
+/*    console.log(arrSearch(deck, function (card) {
+        return (card.suit === 'Spades' && card.val === 'A')
+    }));*/
+
+    //– всі шістки
+/*    let sortedCards = deck.reduce((accumulator, card) => {
+        if(card.val === '6'){
+            accumulator.push(card);
+        }
+        return accumulator;
+    },[])
+    console.log(sortedCards);
+
+    console.log(deck.filter(card => card.val === "6"));*/
+
+    //– всі червоні карти
+   /* console.log(deck.filter(card => {
+        return (card.suit === 'Hearts' || card.suit === 'Diamonds');
+    }));*/
+
+    //– всі буби
+    /*const diamond = deck.reduce((acc, val) => {
+        if(val.suit === 'Diamonds'){
+            acc.push(val);
+        }
+        return acc;
+    }, [])
+    //console.log(diamond);
+
+    const diamond2 = deck.filter(card => card.suit === 'Diamonds');
+    console.log(diamond2);*/
+
+    //– всі трефи від 9 та більше
+   /* let sortedCards = deck.reduce((accum, card) => {
+        const rang = ['10', 'J', 'Q', 'K', 'A'];
+        if(card.suit === 'Clubs' && rang.includes(card.val)){
+            accum.push(card);
+        }
+
+        return accum;
+    },[]);
+    console.log(sortedCards);*/
+
+    //Взяти описану колоду карт, та за допомогою reduce “упакувати” всі карти по “мастях” в об’єкт
+
+    let sorted = deck.reduce((accumulator, card) =>{
+        switch(card.suit){
+            case 'Hearts':
+                accumulator.hearts.push(card);
+                break;
+            case 'Clubs':
+                accumulator.clubs.push(card);
+                break;
+            case 'Diamonds':
+                accumulator.diamonds.push(card);
+                break;
+            case 'Spades':
+                accumulator.spades.push(card);
+                break;
+        }
+        return accumulator;
+    },{
+        spades:[],
+        diamonds:[],
+        hearts:[],
+        clubs:[]
+    })
+
+    console.log(sorted);
+
+
+</script>
+</body>
+</html>
