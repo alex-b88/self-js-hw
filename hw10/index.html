@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>home page</title>
+</head>
+<style>
+   form {
+    width: 200px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+   }
+
+   form button{
+    width: 50px;
+    align-self: flex-end;
+   }
+
+
+</style>
+<body>
+    
+    <!-- <p id="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, quae.</p> -->
+
+    <!-- <form id="form1">
+        <input type="text" name="age" placeholder="age">
+        <button>enter</button>
+    </form> -->
+
+    <!-- <form id="form">
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="surname" placeholder="surname">
+        <input type="text" name="age" placeholder="age">
+        <button>ok</button>
+    </form> -->
+
+    <!-- <div id="nummer"></div> -->
+    <!-- <button onclick="window.location.href = 'sessions.html';">show ssesions</button> -->
+
+    <!-- <form id="form">
+        <input type="text" name="kg" placeholder="kg">
+        <input type="text" name="pounds" placeholder="pounds">
+    </form> -->
+
+    <form id="table">
+        <input type="text" name="rows" placeholder="rows">
+        <input type="text" name="tables" placeholder="tables">
+        <input type="text" name="msg", placeholder="value">
+        <button>GO!</button>
+    </form>
+
+<script>
+   //– Створити довільний елемент з id = text та створити кнопку. Використовуючи JavaScript, зробіть так, щоб при натисканні на кнопку зникав елемент з id=”text”.
+   
+    /*let btn = document.createElement('button');
+    btn.innerText = 'click';
+    let body = document.getElementsByTagName('body');
+    body[0].appendChild(btn);
+
+    let p = document.getElementById('text');
+    
+    
+    
+    btn.addEventListener('click', function(){
+        if(p.style.display === 'none'){
+            p.style.display = 'block';
+            return;
+        }
+        p.style.display = 'none';
+
+    });*/
+
+    //– створити інпут, який приймає вік людини, та кнопку, яка підтверджує дію. При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік, 
+    // чи менше він за 18, та повідомити про це користувача
+
+    /*let form = document.forms.form1;
+    let body = document.getElementsByTagName('body');
+    console.log(body);
+    form.onsubmit = function (e) {
+        
+        e.preventDefault();
+        let info = document.createElement('p');
+        let age = +this.age.value
+        if(age && age>=18){
+            info.innerText = 'Совершеннолетний';
+        } else if(age && age < 18){
+            info.innerText = 'Не совершеннолетний';
+        } else {
+            info.innerText = 'Введи возвраст'
+        }
+        body.appendChild(info);
+
+    }*/
+
+    //Створити форму з трьома полями для name, surname, age та кнопкою. При натисканні на кнопку зчитати дані з полів, та вивести об’єкт в документ. 
+    // Іншими словами : заповнили форму, натиснули кнопку, під формою з’явився блок з вашим об’єктом
+     /*
+    let form = document.forms.form;
+
+    form.onsubmit = function (e) {
+            e.preventDefault();
+
+            let user = {
+                name: this.name.value,
+                surname: this.surname.value,
+                age: this.age.value
+            }
+            
+            let div = document.createElement('div');
+            div.innerHTML = `
+            <p>name: ${user.name}</p>
+            <p>surname: ${user.surname}</p>
+            <p>age: ${user.age}</p>
+            `;
+
+            document.body.appendChild(div);
+    }*/
+
+    //є сторінка, на якій є блок, в кому знаходиться цифра. Написати код, який при кожному перезавантажені сторінки буде додавати до неї +1
+
+    /*let div = document.getElementById('nummer');
+    let counter = JSON.parse(localStorage.getItem('reloadsCunter')) || 0;
+    div.innerText = counter;
+    counter++;
+    localStorage.setItem('reloadsCunter', JSON.stringify(counter));*/
+    
+    //Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховище, в масив sessionsList зберігається інформація про дату та час відвідування сторінки. 
+    // Є  сторінка sessionsListPage.html (назва довільна), при відвідуванні якої потрібно відмалювати всю інформацію про відвідування сторінки index.html. Інфу НЕ виводити в 
+    // консоль, а малювати в DOM
+    /*let time = new Date();
+    console.log(time);
+
+    let sessions = JSON.parse(localStorage.getItem('sessionsList')) || [];
+    sessions.push(time);
+
+    localStorage.setItem('sessionsList', JSON.stringify(sessions));*/
+
+
+    //створити конвертор ваги з кг в фунти. дані заповнюються через інпут. При введенні даних обрахунок стається миттєво, без натискань додаткових кнопок
+
+    /*
+    let form = document.forms.form;
+    form.kg.addEventListener('input', function(ev){
+        form.pounds.value = (this.value*2.20462).toFixed(5);
+    })
+
+    form.pounds.addEventListener('input', function(ev){
+        form.kg.value = (this.value/2.20462).toFixed(5);
+    })*/
+    
+    //В localStorage зберігаються масиви. Вам потрібно зробити функцію, які дістає потрібний вам масив з localStorage та додає в нього об’єкт
+    //сигнатура функції –
+    //addToLocalStorage(arrayName:string,objToAdd:any{}):void
+
+    /*function addToLocalStorage(arrayName, objToAdd) {
+        let array = JSON.parse(localStorage.getItem(arrayName));
+        if(!array){
+            let arr = [objToAdd];
+            localStorage.setItem(arrayName, JSON.stringify(arr));
+        }
+        else {
+           array.push(objToAdd);
+           localStorage.setItem(arrayName, JSON.stringify(array));
+        }
+
+       
+    }
+    addToLocalStorage('ages', '100');*/
+
+    //Створити 3 інпута та кнопку. Один визначає кількість рядків, другий – кількість ячеєк, третій – вміст ячеєк.
+    //При натисканні кнопки вся ця інформація зчитується і формується табличка з відповідним вмістом.
+
+
+    let form = document.forms.table;
+
+    form.onsubmit = function (e) {
+        e.preventDefault();
+        let teble = document.createElement('table');
+        let rowsNumer = +this.rows.value;
+        let tablesNumer = +this.tables.value;
+        for(let i=0; i<rowsNumer; i++){
+            let row = document.createElement('tr');
+                for(let j=0; j<tablesNumer; j++){
+                    let cell = document.createElement('td');
+                    cell.innerText = this.msg.value;
+                    row.appendChild(cell);
+                }
+            teble.appendChild(row);
+        }
+        document.body.appendChild(teble);
+    }
+
+</script>
+</body>
+</html>
