@@ -46,12 +46,14 @@
         <input type="text" name="pounds" placeholder="pounds">
     </form> -->
 
-    <form id="table">
+    <!-- <form id="table">
         <input type="text" name="rows" placeholder="rows">
         <input type="text" name="tables" placeholder="tables">
         <input type="text" name="msg", placeholder="value">
         <button>GO!</button>
-    </form>
+    </form> -->
+
+    <p id="number"></p>
 
 <script>
    //– Створити довільний елемент з id = text та створити кнопку. Використовуючи JavaScript, зробіть так, щоб при натисканні на кнопку зникав елемент з id=”text”.
@@ -174,7 +176,7 @@
     //Створити 3 інпута та кнопку. Один визначає кількість рядків, другий – кількість ячеєк, третій – вміст ячеєк.
     //При натисканні кнопки вся ця інформація зчитується і формується табличка з відповідним вмістом.
 
-
+/*
     let form = document.forms.table;
 
     form.onsubmit = function (e) {
@@ -193,6 +195,35 @@
         }
         document.body.appendChild(teble);
     }
+*/
+
+
+    //(подібне було вище, але…будьте уважні в другій частині) створити сторінку з довільним блоком, в середині якого є значення “100грн”
+    //при перезавантаженні сторінки до значення додається по 10грн, але !!! зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
+    //При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд, нічого не відбувається
+
+    let block = document.getElementById('number');
+    let currentValue = 0;
+    let curentTime = new Date();
+    let lastValueBlock = JSON.parse(localStorage.getItem('blockValue')) || 0;
+    
+    if(lastValueBlock===0){
+        currentValue=100;
+    }
+    else{
+        currentValue = lastValueBlock
+    }
+
+    block.innerText=currentValue;
+
+    let lastTimeFromLS = JSON.parse(localStorage.getItem('lastRenewTime')) || 0;
+
+    if(curentTime.getTime()-lastTimeFromLS>10000 && lastTimeFromLS!==0){
+        block.innerText=currentValue+10;
+        localStorage.setItem('blockValue', currentValue+10);
+    }
+    
+    localStorage.setItem('lastRenewTime', JSON.stringify(curentTime.getTime()));
 
 </script>
 </body>
