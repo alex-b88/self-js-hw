@@ -7,7 +7,7 @@
     <title>home page</title>
 </head>
 <style>
-   form {
+   /* form {
     width: 200px;
     padding: 20px 10px;
     display: flex;
@@ -18,8 +18,33 @@
    form button{
     width: 50px;
     align-self: flex-end;
-   }
+   } */
 
+   .block{
+    width: 150px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: bisque;
+   }
+   .buttonsSection{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+   }
+   .arrList{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+   }
+   p{
+    margin: 0px;
+    padding: 0px;
+   }
 
 </style>
 <body>
@@ -53,7 +78,12 @@
         <button>GO!</button>
     </form> -->
 
-    <p id="number"></p>
+    <!-- <p id="number"></p> -->
+
+    <div class="block">
+        <div class="arrList" id="arrList"></div>
+        <div class="buttonsSection"><button id="Prev">Prev</button><button id="Next">Next</button></div>
+    </div>
 
 <script>
    //– Створити довільний елемент з id = text та створити кнопку. Використовуючи JavaScript, зробіть так, щоб при натисканні на кнопку зникав елемент з id=”text”.
@@ -202,7 +232,7 @@
     //при перезавантаженні сторінки до значення додається по 10грн, але !!! зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
     //При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд, нічого не відбувається
 
-    let block = document.getElementById('number');
+/*    let block = document.getElementById('number');
     let currentValue = 0;
     let curentTime = new Date();
     let lastValueBlock = JSON.parse(localStorage.getItem('blockValue')) || 0;
@@ -224,6 +254,84 @@
     }
     
     localStorage.setItem('lastRenewTime', JSON.stringify(curentTime.getTime()));
+*/
+
+   /* document.addEventListener('DOMContentLoaded', ()=>{
+        let value = Number(localStorage.getItem('blockValue') || 100);
+        let block = document.getElementById('number');
+        block.innerText = `${value}`;
+        
+        setTimeout(()=>{
+            value += 10;
+            localStorage.setItem('blockValue', value);
+
+        },10000)
+
+    });*/
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+        // Массив из объектов
+        let objects = [];
+        for(let i = 1; i <= 47; i++){
+            objects.push({
+                id: i,
+                name: `User ${i}`,
+                value: Math.floor(Math.random() * 1000)
+            });
+        }
+        
+        let arrList = document.getElementById('arrList');
+        let prevBtn = document.getElementById('Prev');
+        let nextBtn = document.getElementById('Next');
+        
+        let currentPage = 0; // Текущая страница (0 = первые 10, 1 = 11-20, и т.д.)
+        const itemsPerPage = 10;
+        const totalPages = Math.ceil(objects.length / itemsPerPage);
+        
+        // Функция для отображения текущей страницы
+        function displayPage(pageNum) {
+            arrList.innerHTML = '';
+            const start = pageNum * itemsPerPage;
+            const end = start + itemsPerPage;
+            const pageItems = objects.slice(start, end);
+            
+            pageItems.forEach((obj, index) => {
+                let p = document.createElement('p');
+                p.innerText = `${start + index + 1}. ${obj.name} - ${obj.value}`;
+                arrList.appendChild(p);
+            });
+            
+            updateButtonsStatus();
+        }
+        
+        // Функция для управления статусом кнопок
+        function updateButtonsStatus() {
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage === totalPages - 1;
+        }
+        
+        // Обработчик клика на кнопку Next
+        nextBtn.addEventListener('click', ()=>{
+            if(currentPage < totalPages - 1) {
+                currentPage++;
+                displayPage(currentPage);
+            }
+        });
+        
+        // Обработчик клика на кнопку Prev
+        prevBtn.addEventListener('click', ()=>{
+            if(currentPage > 0) {
+                currentPage--;
+                displayPage(currentPage);
+            }
+        });
+        
+        // Показать первую страницу при загрузке
+        displayPage(0);
+
+    })
+    
+
 
 </script>
 </body>

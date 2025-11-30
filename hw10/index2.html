@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      padding-top: 40px;
+      width: 80vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .uah{
+      background-color: #1f87d4;
+      padding: 30px 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #f8efed;
+      font-size: 25px;
+    }
+    .array-list{
+      padding: 10px;
+      background-color: #1f87d4;
+      width: 250px;
+      /*height: 300px;*/
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    .array-list div:last-of-type{
+      margin-top: 15px;
+    }
+    .array-list button{
+      padding: 7px 25px;
+    }
+  </style>
+</head>
+<body>
+<div class="uah">
+  <p class="nominal">100</p>
+</div>
+<div class="array-list">
+
+  <div>
+    <button id="prev" onclick="showPrev()">Prev</button>
+    <button id="next" onclick="showNext()">Next</button>
+  </div>
+</div>
+<script>
+    let names = [
+    'Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Homer', 'Ivy', 'Jack',
+    'Kathy', 'Leo', 'Mona', 'Nina', 'Oscar', 'Paul', 'Quinn', 'Robin', 'Sam', 'Tina',
+    'Uma', 'Victor', 'Wendy', 'Xander', 'Yara', 'Zane', 'Aaron', 'Bella', 'Carl', 'Donna',
+    'Eli', 'Fiona', 'George', 'Hannah', 'Isaac', 'Jill', 'Kevin', 'Lily', 'Mark', 'Nora',
+    'Omar', 'Pam', 'Quentin', 'Rachel', 'Steve', 'Tracy', 'Ursula', 'Vince', 'Will', 'Xenia',
+    'Yvonne', 'Zach', 'Alyssa', 'Brandon', 'Claire', 'Derek', 'Emily', 'Fred', 'Gabby', 'Henry',
+    'Isabel', 'Jake', 'Karen', 'Lucas', 'Megan', 'Nathan', 'Olivia', 'Peter', 'Queen', 'Ron'
+];
+
+let myArray = [];
+for (let i = 0; i < names.length; i++) {
+    myArray.push({id: i+1, name: names[i]})
+}
+let btnPrev = document.getElementById('prev');
+let btnNext = document.getElementById('next');
+let arrayListDiv = document.getElementsByClassName('array-list')[0];
+let existingDiv = arrayListDiv.querySelector('div');
+let prev = 0;
+let next = 0;
+
+document.addEventListener('DOMContentLoaded', () => {
+    for (let i = 0; i < 10; i++) {
+        let p = document.createElement('p');
+        p.innerHTML = `id: ${myArray[i].id}, name: ${myArray[i].name}`;
+        arrayListDiv.insertBefore(p, existingDiv);
+    }
+    buttonsStatus(prev,next);
+    next = 20;
+    prev = 10;
+})
+
+
+function showNext(){
+    clearTag();
+    for (let i = prev; i < next; i++) {
+        let p = document.createElement('p');
+        p.innerHTML = `id: ${myArray[i].id}, name: ${myArray[i].name}`;
+        arrayListDiv.insertBefore(p, existingDiv);
+    }
+    buttonsStatus(prev,next);
+    console.log(`before plus: ${prev}-${next}`);
+    next += 10;
+    prev += 10;
+    console.log(`after plus: ${prev}-${next}`);
+    console.log(`=====================`);
+}
+
+function showPrev(){
+    clearTag();
+    // console.log(`before minus: ${prev}-${next}`);
+    next -= 10;
+    prev -= 10;
+    console.log(`after minus: ${prev}-${next}`);
+    for (let i = prev; i < next; i++) {
+        let p = document.createElement('p');
+        p.innerHTML = `id: ${myArray[i].id}, name: ${myArray[i].name}`;
+        arrayListDiv.insertBefore(p, existingDiv);
+    }
+    buttonsStatus(prev,next);
+}
+
+function clearTag(){
+    let pList = arrayListDiv.querySelectorAll('p');
+    pList.forEach(p=>p.remove());
+}
+
+function buttonsStatus(prev, next){
+    if(next === myArray.length){
+        btnNext.disabled = true;
+    }
+    else{
+        btnNext.disabled = false;
+    }
+    if(prev === 0){
+        btnPrev.disabled = true;
+    }
+    else{
+        btnPrev.disabled = false;
+    }
+}
+</script>
+</body>
+</html>
