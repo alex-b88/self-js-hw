@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content-container, .main-content, .ingredients-block, .full-info, .tags-block, .under-img-block, .navigation-left, .navigation-right{
+    display: flex;
+}
+
+.content-container{
+    margin: 30px auto;
+    justify-content: center;
+
+}
+
+button{
+    width: 4%;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #F6F6F6;
+    color: #D6E4F0;
+}
+button:hover{
+    background-color: #D6E4F0;
+    color: #F6F6F6;
+    cursor: pointer;
+}
+
+.navigation-left, .navigation-right{
+    width: 4%;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.main-content{
+    width: 90%;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.receipt-block, .receipt-image{
+    width: 500px;
+}
+
+.receipt-block{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.full-info{
+    width: 90%;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.full-info>h4{
+    font-size: 1.4rem;
+}
+
+.receipt-image{
+    border-radius: 15px 15px 0 0;
+}
+
+.under-img-block{
+    width: 100%;
+    justify-content: space-between;
+}
+
+.ingredients-block, .tags-block{
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.ingredient{
+    color: aliceblue;
+    background: #1f87d4;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.instructions-block{
+    padding: 5px;
+    background-color: #E8F1F5;
+    border-radius: 5px;
+}
+
+.tags-block>p{
+    color: #E8F1F5;
+    background: #005691;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+.navigation-left, .navigation-right{
+    background: #005691;
+}
